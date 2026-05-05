@@ -3,537 +3,180 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kapil Gupta — Digital Content Specialist & Video Editor</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Kapil Gupta — Video Editor Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Syne:wght@600;800&display=swap" rel="stylesheet">
+
 <style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-:root {
-  --bg: #050505;
-  --surface: #0c0c0c;
-  --card: #111111;
-  --border: #1a1a1a;
-  --text: #e0e0e0;
-  --muted: #777;
-  --accent: #ff6b2b;
-  --accent2: #ff3d00;
-  --glow: rgba(255, 107, 43, 0.15);
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Outfit;background:#050505;color:#e0e0e0}
+section{padding:80px 20px;max-width:1100px;margin:auto}
+
+h1,h2{font-family:Syne}
+h1{font-size:64px;line-height:1}
+h2{font-size:36px;margin-bottom:20px}
+
+p{color:#888;line-height:1.6}
+
+.btn{padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:600}
+.primary{background:#ff6b2b;color:#fff}
+.outline{border:1px solid #333;color:#fff}
+
+.grid{display:grid;gap:20px}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+
+.card{
+  background:#111;
+  padding:20px;
+  border-radius:10px;
+  border:1px solid #1a1a1a;
 }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Outfit', sans-serif;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
-@keyframes fadeUp { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
-@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.5; } }
-@keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-8px); } }
-.animate { opacity: 0; }
-.animate.visible { animation: fadeUp 0.8s ease-out forwards; }
 
-/* NAV */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  padding: 18px 40px; display: flex; justify-content: space-between; align-items: center;
-  background: rgba(5,5,5,0.8); backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255,255,255,0.04); transition: all 0.3s;
-}
-nav.scrolled { padding: 12px 40px; background: rgba(5,5,5,0.95); }
-.nav-logo { font-family:'Syne',sans-serif; font-size:20px; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-0.5px; }
-.nav-logo span { color: var(--accent); }
-.nav-links { display: flex; gap: 32px; align-items: center; }
-.nav-links a { color:var(--muted); text-decoration:none; font-size:13px; font-weight:500; letter-spacing:0.5px; text-transform:uppercase; transition:color 0.3s; }
-.nav-links a:hover { color:#fff; }
-.nav-cta { background:var(--accent)!important; color:#fff!important; padding:8px 20px; border-radius:6px; font-weight:600!important; }
-.nav-cta:hover { transform:translateY(-1px); box-shadow:0 4px 20px var(--glow); }
-.nav-toggle { display:none; background:none; border:none; color:#fff; font-size:24px; cursor:pointer; }
+.hero{padding:120px 20px;text-align:left}
+.hero p{max-width:500px;margin:20px 0}
 
-/* HERO */
-.hero { min-height:100vh; display:flex; align-items:center; position:relative; overflow:hidden; padding:120px 60px 80px; }
-.hero-bg-grid {
-  position:absolute; inset:0;
-  background-image: linear-gradient(rgba(255,107,43,0.03) 1px,transparent 1px), linear-gradient(90deg,rgba(255,107,43,0.03) 1px,transparent 1px);
-  background-size: 80px 80px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%,black,transparent);
-}
-.hero-glow { position:absolute; width:600px; height:600px; border-radius:50%; background:radial-gradient(circle,rgba(255,107,43,0.08) 0%,transparent 70%); top:10%; right:5%; animation:float 6s ease-in-out infinite; }
-.hero-glow-2 { position:absolute; width:400px; height:400px; border-radius:50%; background:radial-gradient(circle,rgba(255,61,0,0.05) 0%,transparent 70%); bottom:10%; left:10%; animation:float 8s ease-in-out infinite reverse; }
-.hero-content { position:relative; z-index:2; max-width:800px; }
-.hero-tag { display:inline-flex; align-items:center; gap:8px; padding:6px 16px; border:1px solid var(--border); border-radius:100px; font-size:12px; font-weight:500; color:var(--accent); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:28px; animation:fadeIn 1s ease-out 0.2s both; }
-.hero-tag .dot { width:6px; height:6px; border-radius:50%; background:var(--accent); animation:pulse 2s ease-in-out infinite; }
-.hero h1 { font-family:'Syne',sans-serif; font-size:clamp(48px,7vw,88px); font-weight:900; line-height:1.0; letter-spacing:-3px; color:#fff; margin-bottom:24px; animation:fadeUp 0.8s ease-out 0.3s both; }
-.hero h1 .line2 { color:var(--accent); display:block; }
-.hero-sub { font-size:18px; color:var(--muted); line-height:1.7; max-width:520px; margin-bottom:40px; animation:fadeUp 0.8s ease-out 0.5s both; }
-.hero-buttons { display:flex; gap:14px; flex-wrap:wrap; animation:fadeUp 0.8s ease-out 0.7s both; }
-.btn { padding:14px 32px; border-radius:8px; font-size:14px; font-weight:600; text-decoration:none; cursor:pointer; transition:all 0.3s; border:none; display:inline-flex; align-items:center; gap:8px; }
-.btn-primary { background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff; box-shadow:0 4px 24px var(--glow); }
-.btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(255,107,43,0.3); }
-.btn-outline { background:transparent; color:#fff; border:1px solid #333; }
-.btn-outline:hover { border-color:var(--accent); color:var(--accent); }
-.hero-stats { display:flex; gap:48px; margin-top:60px; padding-top:40px; border-top:1px solid var(--border); animation:fadeUp 0.8s ease-out 0.9s both; }
-.hero-stat h3 { font-family:'Syne',sans-serif; font-size:36px; font-weight:800; color:#fff; }
-.hero-stat h3 span { color:var(--accent); }
-.hero-stat p { font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-top:4px; }
+.stats{display:flex;gap:40px;margin-top:30px}
 
-/* SECTIONS */
-section { padding:100px 60px; position:relative; }
-.section-label { font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--accent); margin-bottom:12px; }
-.section-title { font-family:'Syne',sans-serif; font-size:clamp(32px,4vw,48px); font-weight:800; color:#fff; letter-spacing:-1.5px; margin-bottom:16px; }
-.section-desc { font-size:16px; color:var(--muted); max-width:500px; line-height:1.6; margin-bottom:50px; }
+.stat h3{font-size:28px;color:#fff}
+.stat p{font-size:12px;color:#777}
 
-/* SHOWREEL */
-.showreel-section { background:var(--surface); }
-.showreel-wrap { max-width:960px; margin:0 auto; border-radius:16px; overflow:hidden; border:1px solid var(--border); position:relative; aspect-ratio:16/9; background:#000; }
-.showreel-wrap iframe { width:100%; height:100%; border:none; }
-.showreel-badge { position:absolute; top:-14px; left:50%; transform:translateX(-50%); background:var(--accent); color:#fff; font-size:11px; font-weight:700; padding:6px 20px; border-radius:100px; letter-spacing:1.5px; text-transform:uppercase; z-index:2; }
-
-/* WORK GRID */
-.work-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:20px; }
-.work-card { background:var(--card); border:1px solid var(--border); border-radius:14px; overflow:hidden; transition:all 0.4s cubic-bezier(0.22,1,0.36,1); cursor:pointer; }
-.work-card:hover { transform:translateY(-6px); border-color:rgba(255,107,43,0.3); box-shadow:0 12px 40px rgba(0,0,0,0.4); }
-.work-thumb { height:180px; position:relative; display:flex; align-items:center; justify-content:center; }
-.work-thumb-overlay { position:absolute; inset:0; background:rgba(0,0,0,0.4); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity 0.3s; }
-.work-card:hover .work-thumb-overlay { opacity:1; }
-.play-icon { width:48px; height:48px; border-radius:50%; background:var(--accent); display:flex; align-items:center; justify-content:center; font-size:18px; color:#fff; }
-.work-info { padding:20px; }
-.work-tag { font-size:10px; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:8px; }
-.work-title { font-family:'Syne',sans-serif; font-size:18px; font-weight:700; color:#fff; margin-bottom:8px; }
-.work-desc { font-size:13px; color:var(--muted); line-height:1.5; }
-.work-tools { display:flex; gap:6px; flex-wrap:wrap; margin-top:12px; }
-.work-tools span { font-size:10px; padding:4px 10px; border-radius:100px; background:rgba(255,107,43,0.08); color:var(--accent); font-weight:600; }
-
-/* EXPERIENCE */
-.exp-timeline { max-width:700px; position:relative; padding-left:32px; }
-.exp-timeline::before { content:''; position:absolute; left:0; top:8px; bottom:8px; width:1px; background:linear-gradient(180deg,var(--accent),var(--border)); }
-.exp-item { position:relative; padding:0 0 48px 28px; }
-.exp-item::before { content:''; position:absolute; left:-36px; top:6px; width:10px; height:10px; border-radius:50%; border:2px solid var(--accent); background:var(--bg); }
-.exp-item.current::before { background:var(--accent); box-shadow:0 0 12px var(--glow); }
-.exp-date { font-size:11px; font-weight:600; color:var(--accent); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; }
-.exp-company { font-family:'Syne',sans-serif; font-size:22px; font-weight:700; color:#fff; margin-bottom:4px; }
-.exp-location { font-size:12px; color:var(--muted); margin-bottom:10px; }
-.exp-desc { font-size:14px; color:#999; line-height:1.6; }
-
-/* SKILLS */
-.skills-section { background:var(--surface); }
-.skills-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:16px; }
-.skill-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:24px; transition:all 0.4s cubic-bezier(0.22,1,0.36,1); cursor:default; position:relative; overflow:hidden; }
-.skill-card::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,107,43,0.05),transparent); opacity:0; transition:opacity 0.4s; }
-.skill-card:hover { border-color:rgba(255,107,43,0.3); transform:translateY(-4px); box-shadow:0 8px 32px rgba(0,0,0,0.3); }
-.skill-card:hover::after { opacity:1; }
-.skill-icon { font-size:28px; margin-bottom:14px; display:block; }
-.skill-name { font-weight:700; font-size:15px; color:#fff; margin-bottom:6px; position:relative; z-index:1; }
-.skill-detail { font-size:12px; color:var(--muted); line-height:1.5; position:relative; z-index:1; }
-
-/* AWARD */
-.award-banner { background:linear-gradient(135deg,rgba(255,107,43,0.08),rgba(255,61,0,0.04)); border:1px solid rgba(255,107,43,0.15); border-radius:16px; padding:40px; display:flex; align-items:center; gap:32px; max-width:700px; }
-.award-icon { font-size:52px; flex-shrink:0; }
-.award-title { font-family:'Syne',sans-serif; font-size:22px; font-weight:800; color:#fff; margin-bottom:6px; }
-.award-sub { font-size:14px; color:var(--muted); line-height:1.5; }
-
-/* EDUCATION */
-.edu-grid { display:flex; flex-direction:column; gap:16px; max-width:700px; }
-.edu-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:28px; transition:border-color 0.3s; }
-.edu-card:hover { border-color:rgba(255,107,43,0.2); }
-.edu-degree { font-family:'Syne',sans-serif; font-size:18px; font-weight:700; color:#fff; margin-bottom:4px; }
-.edu-school { font-size:14px; color:var(--accent); margin-bottom:4px; }
-.edu-year { font-size:12px; color:var(--muted); }
-
-/* CONTACT */
-.contact-section { background:var(--surface); text-align:center; }
-.contact-grid { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin-top:12px; }
-.contact-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:24px 32px; text-decoration:none; transition:all 0.3s; display:flex; align-items:center; gap:14px; min-width:240px; }
-.contact-card:hover { border-color:var(--accent); transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,0.3); }
-.contact-icon { font-size:24px; }
-.contact-label { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; }
-.contact-value { font-size:14px; color:#fff; font-weight:600; margin-top:2px; }
-
-footer { padding:40px 60px; border-top:1px solid var(--border); text-align:center; }
-footer p { font-size:13px; color:#444; }
-
-/* EDIT GUIDE BANNER */
-.edit-guide {
-  display: none; /* CHANGE TO "flex" TO SEE THE EDIT GUIDE */
-  position: fixed; bottom: 20px; right: 20px; z-index: 10000;
-  background: #1a1a1a; border: 1px solid var(--accent); border-radius: 12px;
-  padding: 16px 20px; max-width: 320px; flex-direction: column; gap: 8px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-}
-.edit-guide h4 { color: var(--accent); font-size: 13px; font-weight: 700; }
-.edit-guide p { color: #999; font-size: 11px; line-height: 1.5; }
-.edit-guide .close-guide { position:absolute; top:8px; right:12px; background:none; border:none; color:#666; cursor:pointer; font-size:16px; }
-
-@media (max-width: 768px) {
-  nav { padding:14px 20px; }
-  .nav-links { display:none; }
-  .nav-links.open { display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:rgba(5,5,5,0.97); padding:20px; gap:16px; border-bottom:1px solid var(--border); }
-  .nav-toggle { display:block; }
-  .hero { padding:100px 24px 60px; }
-  section { padding:60px 24px; }
-  .hero-stats { gap:24px; flex-wrap:wrap; }
-  .hero-stat h3 { font-size:28px; }
-  .award-banner { flex-direction:column; text-align:center; padding:28px; }
-  .contact-card { min-width:100%; }
-  .skills-grid { grid-template-columns:repeat(2,1fr); }
-  .work-grid { grid-template-columns:1fr; }
-}
+.contact{text-align:center}
+.contact a{display:block;margin:10px 0;color:#fff}
 </style>
 </head>
+
 <body>
-
-<script>
-// ╔══════════════════════════════════════════════════════════════╗
-// ║                                                              ║
-// ║   ✏️  EDIT YOUR PORTFOLIO HERE — CHANGE ANYTHING BELOW!     ║
-// ║                                                              ║
-// ║   Just change the text between the quotes and save.          ║
-// ║   The entire website updates automatically.                  ║
-// ║                                                              ║
-// ╚══════════════════════════════════════════════════════════════╝
-
-const CONFIG = {
-
-  // ── YOUR BASIC INFO ──────────────────────────────────────
-  name: "Kapil Gupta",
-  title_line1: "Digital Content Specialist",
-  title_line2: "& Video Editor",
-  tagline: "Available for work",
-  bio: "I transform raw footage into high-converting brand assets. Specializing in commercial videos, motion graphics, compositing & visual effects.",
-  location: "Delhi, India",
-
-  // ── YOUR LINKS ───────────────────────────────────────────
-  showreel_url: "https://youtu.be/iv-kDuv1WDg?si=F5CJSThnFYGmxIA4",
-  showreel_embed: "https://www.youtube.com/embed/iv-kDuv1WDg?rel=0&modestbranding=1",
-  portfolio_url: "https://drive.google.com/drive/folders/1i0KGxwaWn_98UqLG--EYpcw6fwubpfEy?usp=sharing",
-  linkedin_url: "https://www.linkedin.com/in/kapil-gupta-b87a51276/",
-
-  // ── CONTACT ──────────────────────────────────────────────
-  email: "kapil82871@gmail.com",
-  phone: "+91-8287156905",
-
-  // ── STATS (shown in hero) ────────────────────────────────
-  stats: [
-    { number: "3+", label: "Years Experience" },
-    { number: "4+", label: "Companies Worked" },
-    { number: "7+", label: "Software Mastered" },
-  ],
-
-  // ── YOUR PROJECTS ────────────────────────────────────────
-  // Add, remove or edit projects. Each needs: tag, title, desc, tools[], link, emoji, gradient
-  projects: [
-    {
-      tag: "Brand Video",
-      title: "AccioJob — Brand Story",
-      desc: "Created a compelling brand video focusing on storytelling and visual appeal for this EdTech platform.",
-      tools: ["Premiere Pro", "After Effects", "Storytelling"],
-      link: "https://drive.google.com/drive/folders/1i0KGxwaWn_98UqLG--EYpcw6fwubpfEy?usp=sharing",
-      emoji: "🎬",
-      gradient: "linear-gradient(135deg, #1a0a00, #2a1200)",
-    },
-    {
-      tag: "Commercial",
-      title: "Glitch Studio — Industrial Videos",
-      desc: "Created several commercial and industrial videos from scratch for diverse brand requirements.",
-      tools: ["Premiere Pro", "After Effects", "Color Grading"],
-      link: "https://drive.google.com/drive/folders/1i0KGxwaWn_98UqLG--EYpcw6fwubpfEy?usp=sharing",
-      emoji: "🏭",
-      gradient: "linear-gradient(135deg, #0a0a1a, #0f1225)",
-    },
-    {
-      tag: "Brand Assets",
-      title: "Dot N Pixel — Brand Content",
-      desc: "Specialized in transforming raw footage into high-converting brand assets for digital campaigns.",
-      tools: ["Premiere Pro", "Photoshop", "Canva"],
-      link: "https://drive.google.com/drive/folders/1i0KGxwaWn_98UqLG--EYpcw6fwubpfEy?usp=sharing",
-      emoji: "✨",
-      gradient: "linear-gradient(135deg, #0a1a0f, #0c200f)",
-    },
-    {
-      tag: "VFX",
-      title: "24 FPS Competition — VFX Film",
-      desc: "Roto, compositing & final touch ups using Nuke, 3Ds Max, PFTrack, Mocha, Silhouette, Houdini & Maya.",
-      tools: ["Nuke", "Houdini", "3Ds Max", "Mocha"],
-      link: "https://youtu.be/iv-kDuv1WDg?si=F5CJSThnFYGmxIA4",
-      emoji: "🎞️",
-      gradient: "linear-gradient(135deg, #1a0a15, #250a1a)",
-    },
-    {
-      tag: "Current",
-      title: "Togopool — Video Production",
-      desc: "Currently handling end-to-end video production and content creation for this mobility tech company.",
-      tools: ["Premiere Pro", "After Effects", "Motion Graphics"],
-      link: "https://drive.google.com/drive/folders/1i0KGxwaWn_98UqLG--EYpcw6fwubpfEy?usp=sharing",
-      emoji: "🚗",
-      gradient: "linear-gradient(135deg, #0f0a1a, #150a25)",
-    },
-  ],
-
-  // ── EXPERIENCE ───────────────────────────────────────────
-  // Set current: true for your current job
-  experience: [
-    {
-      date: "April 2025 — Present",
-      company: "Togopool / Mobility Infotech",
-      location: "Gurugram, Haryana",
-      desc: "End-to-end video production and creative content for a mobility technology platform.",
-      current: true,
-    },
-    {
-      date: "September 2024 — March 2025",
-      company: "Dot N Pixel",
-      location: "Delhi",
-      desc: "Specialized in transforming raw footage into high-converting brand assets for digital campaigns.",
-      current: false,
-    },
-    {
-      date: "July 2024 — September 2024",
-      company: "AccioJob",
-      location: "Gurugram, Haryana",
-      desc: "Created brand video focusing on storytelling and visual appeal for the EdTech platform.",
-      current: false,
-    },
-    {
-      date: "May 2023 — May 2024",
-      company: "Glitch Studio",
-      location: "Delhi",
-      desc: "Created several commercial and industrial videos from scratch for diverse client requirements.",
-      current: false,
-    },
-  ],
-
-  // ── SKILLS ───────────────────────────────────────────────
-  skills: [
-    { icon: "🎨", name: "After Effects", detail: "Dynamic motion graphics, visual effects & compositing" },
-    { icon: "🎬", name: "Premiere Pro", detail: "Professional video editing, color grading & assembly" },
-    { icon: "🌊", name: "Houdini", detail: "Procedural FX, simulations & particle systems" },
-    { icon: "🔗", name: "Nuke", detail: "Node-based compositing, CG integration & cleanup" },
-    { icon: "🧊", name: "3Ds Max", detail: "3D modeling, animation, lighting & rendering" },
-    { icon: "🖼️", name: "Photoshop", detail: "Image editing, compositing & visual design" },
-    { icon: "✏️", name: "Canva", detail: "Graphics, presentations & social media content" },
-  ],
-
-  // ── AWARD ────────────────────────────────────────────────
-  award_title: "Delhi CG Competition 2021",
-  award_desc: "Bronze Winner — 3D Animated Short Film making competition organized by MAAC Delhi. Demonstrated excellence in visual storytelling, animation, and creative direction.",
-
-  // ── EDUCATION ────────────────────────────────────────────
-  education: [
-    { degree: "Advanced Diploma in Visual Effects", school: "MAAC, Delhi", year: "June 2019 — June 2023" },
-    { degree: "Bachelor of Arts (B.A.)", school: "Delhi University — School of Open Learning", year: "July 2019 — July 2022" },
-  ],
-};
-
-// ╔══════════════════════════════════════════════════════════════╗
-// ║  🚫  DO NOT EDIT BELOW THIS LINE (unless you know HTML)    ║
-// ╚══════════════════════════════════════════════════════════════╝
-</script>
-
-<div id="app"></div>
-
-<script>
-const C = CONFIG;
-const $ = (s) => document.querySelector(s);
-
-function render() {
-  document.title = `${C.name} — ${C.title_line1} ${C.title_line2}`;
-
-  $('#app').innerHTML = `
-<!-- NAV -->
-<nav id="navbar">
-  <a href="#" class="nav-logo">${C.name.split(' ')[0].toUpperCase()}<span>.</span></a>
-  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
-  <div class="nav-links">
-    <a href="#showreel">Showreel</a>
-    <a href="#work">Work</a>
-    <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact" class="nav-cta">Hire Me</a>
-  </div>
-</nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg-grid"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-glow-2"></div>
-  <div class="hero-content">
-    <div class="hero-tag"><span class="dot"></span> ${C.tagline}</div>
-    <h1>${C.title_line1}<span class="line2">${C.title_line2}</span></h1>
-    <p class="hero-sub">${C.bio}</p>
-    <div class="hero-buttons">
-      <a href="${C.showreel_url}" target="_blank" class="btn btn-primary">▶ Watch Showreel</a>
-      <a href="${C.portfolio_url}" target="_blank" class="btn btn-outline">View Portfolio ↗</a>
-      <a href="${C.linkedin_url}" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
-    </div>
-    <div class="hero-stats">
-      ${C.stats.map(s => `<div class="hero-stat"><h3>${s.number.replace(/\+/,'<span>+</span>')}</h3><p>${s.label}</p></div>`).join('')}
-    </div>
-  </div>
+<h1>Video Editor<br><span style="color:#ff6b2b">& Visual Storyteller</span></h1>
+
+<p>
+I don’t just edit videos — I craft high-converting visual experiences.
+From brand films to reels, I create content that captures attention and drives results.
+</p>
+
+<div>
+<a href="https://youtu.be/iv-kDuv1WDg" class="btn primary">▶ Showreel</a>
+<a href="https://drive.google.com/drive/folders/1i0KGxwaWn_98UqLG--EYpcw6fwubpfEy" class="btn outline">Portfolio</a>
+<a href="https://www.linkedin.com/in/kapil-gupta-b87a51276/" class="btn outline">LinkedIn</a>
+</div>
+
+<div class="stats">
+<div class="stat"><h3>50+</h3><p>Videos</p></div>
+<div class="stat"><h3>3+</h3><p>Years</p></div>
+<div class="stat"><h3>Brands</h3><p>Worked With</p></div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section>
+<h2>What I Do</h2>
+<div class="grid grid-3">
+<div class="card">Video Editing (Ads, Reels, YouTube)</div>
+<div class="card">Motion Graphics & Animation</div>
+<div class="card">VFX & Compositing</div>
+<div class="card">Color Grading</div>
+<div class="card">Social Media Content</div>
+</div>
 </section>
 
 <!-- SHOWREEL -->
-<section class="showreel-section" id="showreel">
-  <div style="text-align:center;">
-    <div class="section-label">Featured</div>
-    <div class="section-title">Showreel</div>
-    <p class="section-desc" style="margin:0 auto 50px;">A glimpse into my VFX, compositing, and editing craft.</p>
-  </div>
-  <div class="showreel-wrap animate">
-    <div class="showreel-badge">▶ Showreel</div>
-    <iframe src="${C.showreel_embed}" title="${C.name} Showreel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </div>
+<section>
+<h2>Showreel</h2>
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/iv-kDuv1WDg" frameborder="0" allowfullscreen></iframe>
 </section>
 
-<!-- WORK -->
-<section id="work">
-  <div class="section-label">Portfolio</div>
-  <div class="section-title">Selected Work</div>
-  <p class="section-desc">Commercial videos, brand content & VFX projects crafted for real clients.</p>
-  <div class="work-grid">
-    ${C.projects.map(p => `
-    <div class="work-card animate" onclick="window.open('${p.link}','_blank')">
-      <div class="work-thumb" style="background:${p.gradient};">
-        <div style="font-size:48px;">${p.emoji}</div>
-        <div class="work-thumb-overlay"><div class="play-icon">↗</div></div>
-      </div>
-      <div class="work-info">
-        <div class="work-tag">${p.tag}</div>
-        <div class="work-title">${p.title}</div>
-        <div class="work-desc">${p.desc}</div>
-        <div class="work-tools">${p.tools.map(t => `<span>${t}</span>`).join('')}</div>
-      </div>
-    </div>`).join('')}
-  </div>
+<!-- CASE STUDIES -->
+<section>
+<h2>Case Studies</h2>
+<div class="grid grid-3">
+
+<div class="card">
+<h3>AccioJob</h3>
+<p>Created storytelling-driven brand video with strong emotional engagement.</p>
+</div>
+
+<div class="card">
+<h3>Glitch Studio</h3>
+<p>Produced commercial videos with cinematic editing and clean pacing.</p>
+</div>
+
+<div class="card">
+<h3>Togopool</h3>
+<p>Created high-retention reels and ad content for social media.</p>
+</div>
+
+<div class="card">
+<h3>24 FPS VFX Film</h3>
+<p>Worked on compositing, roto and VFX pipeline using Nuke & Houdini.</p>
+</div>
+
+</div>
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience" style="background:var(--surface);">
-  <div class="section-label">Career</div>
-  <div class="section-title">Experience</div>
-  <p class="section-desc">From VFX studios to startups — building stories frame by frame.</p>
-  <div class="exp-timeline">
-    ${C.experience.map(e => `
-    <div class="exp-item ${e.current ? 'current' : ''} animate">
-      <div class="exp-date">${e.date}</div>
-      <div class="exp-company">${e.company}</div>
-      <div class="exp-location">${e.location}</div>
-      <div class="exp-desc">${e.desc}</div>
-    </div>`).join('')}
-  </div>
+<section>
+<h2>Experience</h2>
+
+<div class="card">
+<h3>Togopool (2025–Present)</h3>
+<p>Handling end-to-end video production and reels.</p>
+</div>
+
+<div class="card">
+<h3>Dot N Pixel</h3>
+<p>Created high-converting brand content.</p>
+</div>
+
+<div class="card">
+<h3>AccioJob</h3>
+<p>Produced brand storytelling video.</p>
+</div>
+
+<div class="card">
+<h3>Glitch Studio</h3>
+<p>Worked on commercial and industrial videos.</p>
+</div>
+
 </section>
 
 <!-- SKILLS -->
-<section class="skills-section" id="skills">
-  <div class="section-label">Toolkit</div>
-  <div class="section-title">Skills & Software</div>
-  <p class="section-desc">Industry-standard tools powering every frame of my work.</p>
-  <div class="skills-grid">
-    ${C.skills.map(s => `
-    <div class="skill-card animate">
-      <span class="skill-icon">${s.icon}</span>
-      <div class="skill-name">${s.name}</div>
-      <div class="skill-detail">${s.detail}</div>
-    </div>`).join('')}
-  </div>
-</section>
-
-<!-- AWARD -->
 <section>
-  <div class="section-label">Recognition</div>
-  <div class="section-title">Award</div>
-  <div style="height:20px;"></div>
-  <div class="award-banner animate">
-    <div class="award-icon">🏆</div>
-    <div>
-      <div class="award-title">${C.award_title}</div>
-      <div class="award-sub">${C.award_desc}</div>
-    </div>
-  </div>
+<h2>Skills</h2>
+<div class="grid grid-3">
+<div class="card">Premiere Pro</div>
+<div class="card">After Effects</div>
+<div class="card">Houdini</div>
+<div class="card">Nuke</div>
+<div class="card">Photoshop</div>
+<div class="card">3Ds Max</div>
+</div>
 </section>
 
-<!-- EDUCATION -->
-<section style="background:var(--surface);">
-  <div class="section-label">Education</div>
-  <div class="section-title">Academic Background</div>
-  <div style="height:20px;"></div>
-  <div class="edu-grid">
-    ${C.education.map(e => `
-    <div class="edu-card animate">
-      <div class="edu-degree">${e.degree}</div>
-      <div class="edu-school">${e.school}</div>
-      <div class="edu-year">${e.year}</div>
-    </div>`).join('')}
-  </div>
+<!-- WHY HIRE ME -->
+<section>
+<h2>Why Hire Me</h2>
+<div class="grid grid-3">
+<div class="card">Strong storytelling</div>
+<div class="card">Brand experience</div>
+<div class="card">Fast delivery</div>
+<div class="card">Social media understanding</div>
+<div class="card">VFX advantage</div>
+</div>
 </section>
 
 <!-- CONTACT -->
-<section class="contact-section" id="contact">
-  <div class="section-label">Get in Touch</div>
-  <div class="section-title">Let's Work Together</div>
-  <p class="section-desc" style="margin:0 auto 40px;text-align:center;">Available for full-time roles, freelance projects, and creative collaborations.</p>
-  <div class="contact-grid">
-    <a href="mailto:${C.email}" class="contact-card">
-      <div class="contact-icon">✉️</div>
-      <div><div class="contact-label">Email</div><div class="contact-value">${C.email}</div></div>
-    </a>
-    <a href="tel:${C.phone.replace(/-/g,'')}" class="contact-card">
-      <div class="contact-icon">📱</div>
-      <div><div class="contact-label">Phone</div><div class="contact-value">${C.phone}</div></div>
-    </a>
-    <a href="${C.linkedin_url}" target="_blank" class="contact-card">
-      <div class="contact-icon">💼</div>
-      <div><div class="contact-label">LinkedIn</div><div class="contact-value">${C.name}</div></div>
-    </a>
-    <a href="${C.showreel_url}" target="_blank" class="contact-card">
-      <div class="contact-icon">🎥</div>
-      <div><div class="contact-label">YouTube</div><div class="contact-value">Watch Showreel</div></div>
-    </a>
-  </div>
+<section class="contact">
+<h2>Let's Work Together</h2>
+
+<a href="mailto:kapil82871@gmail.com">kapil82871@gmail.com</a>
+<a href="tel:+918287156905">+91 8287156905</a>
+
+<a href="https://www.linkedin.com/in/kapil-gupta-b87a51276/">LinkedIn</a>
+<a href="https://youtu.be/iv-kDuv1WDg">Showreel</a>
+
 </section>
-
-<footer><p>© 2026 ${C.name} — ${C.title_line1} ${C.title_line2} · ${C.location}</p></footer>
-  `;
-
-  // Re-init animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.animate').forEach(el => observer.observe(el));
-
-  window.addEventListener('scroll', () => {
-    const nav = document.getElementById('navbar');
-    if (nav) nav.classList.toggle('scrolled', window.scrollY > 50);
-  });
-
-  document.querySelectorAll('.nav-links a[href^="#"]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      e.preventDefault();
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) { target.scrollIntoView({ behavior:'smooth', block:'start' }); document.querySelector('.nav-links').classList.remove('open'); }
-    });
-  });
-}
-
-render();
-</script>
 
 </body>
 </html>
